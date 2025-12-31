@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Le Plan de Transition</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<script>
+  // URL de la page d'attente Wix (VALIDÉE)
+  const WAITING_PAGE = "https://leplandetransition.wixstudio.com/accueil/attente";
+
+  const routes = {
+    "/": WAITING_PAGE,
+
+    // POURQUOI
+    "/chapitre1-pourquoi": WAITING_PAGE,
+    "/chapitre2-pourquoi": WAITING_PAGE,
+    "/chapitre3-pourquoi": WAITING_PAGE,
+    "/chapitre4-pourquoi": WAITING_PAGE,
+    "/chapitre5-pourquoi": WAITING_PAGE,
+    "/chapitre6-pourquoi": WAITING_PAGE,
+    "/chapitre7-pourquoi": WAITING_PAGE,
+    "/chapitre8-pourquoi": WAITING_PAGE,
+    "/chapitre9-pourquoi": WAITING_PAGE,
+    "/chapitre10-pourquoi": WAITING_PAGE,
+    "/chapitre11-pourquoi": WAITING_PAGE,
+
+    // COMMENT
+    "/chapitre1-comment": WAITING_PAGE,
+    "/chapitre2-comment": WAITING_PAGE,
+    "/chapitre3-comment": WAITING_PAGE,
+    "/chapitre4-comment": WAITING_PAGE,
+    "/chapitre5-comment": WAITING_PAGE,
+    "/chapitre6-comment": WAITING_PAGE,
+    "/chapitre7-comment": WAITING_PAGE,
+    "/chapitre8-comment": WAITING_PAGE,
+    "/chapitre9-comment": WAITING_PAGE,
+    "/chapitre10-comment": WAITING_PAGE,
+    "/chapitre11-comment": WAITING_PAGE
+  };
+
+  function normalize(path) {
+    return (path.length > 1 && path.endsWith("/")) ? path.slice(0, -1) : path;
+  }
+
+  const currentPath = normalize(window.location.pathname);
+
+  if (routes[currentPath]) {
+    window.location.replace(routes[currentPath]);
+  } else {
+    // fallback de sécurité
+    window.location.replace(WAITING_PAGE);
+  }
+</script>
+</body>
+</html>
