@@ -44,7 +44,14 @@
     return (path.length > 1 && path.endsWith("/")) ? path.slice(0, -1) : path;
   }
 
-  const currentPath = normalize(window.location.pathname);
+const BASE_PATH = "/leplandetransition";
+
+let path = window.location.pathname;
+if (path.startsWith(BASE_PATH)) {
+  path = path.slice(BASE_PATH.length) || "/";
+}
+
+const currentPath = normalize(path);
 
   if (routes[currentPath]) {
     window.location.replace(routes[currentPath]);
